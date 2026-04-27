@@ -9,6 +9,14 @@ type BaseModel struct {
 	UpdatedAt time.Time `json:"updated_at" db:"updated_at"`
 }
 
+type Account struct {
+	BaseModel
+	UserID  int64   `json:"user_id"  db:"user_id"`
+	Name    string  `json:"name"     db:"name"`
+	Type    string  `json:"type"     db:"type"` // cash, card, deposit
+	Balance float64 `json:"balance"  db:"balance"`
+}
+
 // model/user.go
 type User struct {
 	BaseModel
