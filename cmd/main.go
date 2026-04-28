@@ -2,6 +2,7 @@ package main
 
 import (
 	"finance_tracker/internal/config"
+	"finance_tracker/internal/handlers"
 	repository "finance_tracker/internal/repository/db"
 	"log"
 )
@@ -31,5 +32,10 @@ func main() {
 
 	log.Printf("Database: %s", cfg)
 	log.Printf("Server will listen on port: %s", cfg.ServerPort)
+
+	addr := ":" + cfg.ServerPort
+	if err := handlers.StartServer(addr, db); err != nil {
+		log.Fatalf("server error: %v", err)
+	}
 
 }

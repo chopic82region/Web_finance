@@ -90,7 +90,7 @@ func LoadConfig() (*Config, error) {
 	}
 	if cfg.MigrationsPath == "" {
 		// значение по умолчанию относительно корня проекта
-		cfg.MigrationsPath = "internal/repository/migrations"
+		cfg.MigrationsPath = "migrations"
 	}
 
 	if cfg.DBPassword == "" {
